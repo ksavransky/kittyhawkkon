@@ -5,17 +5,18 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import ApolloClient from "apollo-boost";
 import gql from "graphql-tag";
-import { HttpLink, createHttpLink } from "apollo-link-http";
+import { createHttpLink, HttpLink } from "apollo-link-http";
+import { InMemoryCache } from "apollo-cache-inmemory";
 
-const hideMeToken = '?token=HWm0tPtem7oY2xJ8MBhPn7RpTTpXCaZF'
+const kittyHawkURL = 'http://api.kittyhawk.io/graphql?token=HWm0tPtem7oY2xJ8MBhPn7RpTTpXCaZF'
+
+const link = createHttpLink({ uri: kittyHawkURL, fetchOptions: {method: 'POST'}});
+
 
 const client = new ApolloClient({
-  uri: "http://api.kittyhawk.io/graphql" + hideMeToken,
-  fetchOptions: { method: "post" }
+  link: link,
+  uri: kittyHawkURL
 });
-
-
-
 
 client
   .query({
