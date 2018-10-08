@@ -67,7 +67,7 @@ class PilotCard extends Component {
           }
         </div>
         <div className="aircrafts">
-          <div className="title">Aircrafts Total Flight Times</div>
+          <div className="aircrafts-title">Aircrafts Total Flight Times</div>
           {map(perAircraftData, (duration, name) => {
             duration = duration._data
             return (
