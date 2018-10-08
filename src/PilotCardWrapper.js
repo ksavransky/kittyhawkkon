@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
-import './App.css';
-import Dashboard from './Dashboard.js'
-
+import PilotCard from './PilotCard'
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 
-const Users = () => (
+const PilotCardWrapper = (props) => (
+
   <Query
     query={gql`
       {
         account {
-          users {
-            id
+          users (id: ${props.pilotId}) {
             first_name
             last_name
             email
+            flights {
+              id
+              duration
+              aircraft {
+                id
+                manufacturer
+                model
+              }
+            }
           }
         }
       }
@@ -25,20 +32,10 @@ const Users = () => (
       if (error) return <p>Error :(</p>;
 
       return (
-        <Dashboard users={data.account.users} />
+        <PilotCard data={data.account.users[0]} />
       )
     }}
   </Query>
-);
+)
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Users />
-      </div>
-    );
-  }
-}
-
-export default App;
+export default PilotCardWrapper;
