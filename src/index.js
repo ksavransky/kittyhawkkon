@@ -7,9 +7,10 @@ import * as serviceWorker from './serviceWorker';
 import ApolloClient from "apollo-boost";
 import gql from "graphql-tag";
 import { ApolloProvider } from "react-apollo";
+require('dotenv').config();
 
 
-const kittyHawkURL = 'http://api.kittyhawk.io/graphql?token=HWm0tPtem7oY2xJ8MBhPn7RpTTpXCaZF'
+const kittyHawkURL = 'http://api.kittyhawk.io/graphql?token=' + process.env.REACT_APP_KITTYHAWK_API_TOKEN
 
 const client = new ApolloClient({
   uri: kittyHawkURL

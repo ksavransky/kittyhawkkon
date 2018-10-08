@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PilotCardWrapper from './PilotCardWrapper.js'
 import BootstrapTable from 'react-bootstrap-table-next';
+import ToolkitProvider, { CSVExport } from 'react-bootstrap-table2-toolkit';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './Dashboard.css'
 
+const { ExportCSVButton } = CSVExport;
 
 const columns = [
 {
@@ -21,7 +23,7 @@ const columns = [
 {
   dataField: 'email',
   text: 'Email'
-},
+}
 ];
 
 const defaultSorted = [{
@@ -39,36 +41,51 @@ class Dashboard extends Component {
   }
 
   onClick = (e, row, rowIndex) => {
-    console.log(`clicked on row with id: ${row.id}`);
     this.setState({
       selectedUserId: row.id
     })
   }
 
   render() {
-    console.log('this.props', this.props);
     return (
       <div className='dashboard'>
         <div className='title'>
           Pilots
         </div>
         <div className='content'>
-          <div className='pilot-table'>
-            <BootstrapTable
-              keyField='id'
-              striped
-              hover
-              condensed
-              rowEvents={{
-                onClick: this.onClick
-              }}
-              defaultSorted={ defaultSorted }
-              data={ this.props.users }
-              columns={ columns } />
-            </div>
+          <ToolkitProvider
+            keyField="id"
+            data={ this.props.users }
+            columns={ columns }
+            exportCSV
+          >
+            {
+              props => (
+                <div className='pilot-table-container'>
+                  <ExportCSVButton { ...props.csvProps }>Export CSV</ExportCSVButton>
+                  <div className='pilot-table'>
+                    <BootstrapTable
+                      { ...props.baseProps }
+                      defaultSorted={ defaultSorted }
+                      striped
+                      hover
+                      condensed
+                      rowEvents={{
+                        onClick: this.onClick
+                      }}
+                    />
+                  </div>
+                </div>
+              )
+            }
+          </ToolkitProvider>
             <div className='pilot-card-container'>
-              {this.state.selectedUserId &&
-                <PilotCardWrapper pilotId={this.state.selectedUserId} />
+              {this.state.selectedUserId ?
+                <PilotCardWrapper pilotId={this.state.selectedUserId} /> :
+                <div className="pilot-card">
+                  <div className="pilot-title">Pilot Information</div>
+                  <div className="pilot-message">Click on a Row</div>
+                </div>
               }
             </div>
         </div>

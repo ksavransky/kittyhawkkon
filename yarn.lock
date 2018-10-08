@@ -3030,7 +3030,7 @@ dotenv-expand@4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/dotenv-expand/-/dotenv-expand-4.2.0.tgz#def1f1ca5d6059d24a766e587942c21106ce1275"
 
-dotenv@6.0.0:
+dotenv@6.0.0, dotenv@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-6.0.0.tgz#24e37c041741c5f4b25324958ebbc34bca965935"
 
@@ -3602,6 +3602,10 @@ file-loader@2.0.0:
   dependencies:
     loader-utils "^1.0.2"
     schema-utils "^1.0.0"
+
+file-saver@1.3.8:
+  version "1.3.8"
+  resolved "http://registry.npmjs.org/file-saver/-/file-saver-1.3.8.tgz#e68a30c7cb044e2fb362b428469feb291c2e09d8"
 
 filename-regex@^2.0.0:
   version "2.0.1"
@@ -7214,6 +7218,12 @@ react-bootstrap-table-next@^1.2.1:
   dependencies:
     classnames "2.2.5"
     underscore "1.9.1"
+
+react-bootstrap-table2-toolkit@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-bootstrap-table2-toolkit/-/react-bootstrap-table2-toolkit-1.1.1.tgz#8b16122ba02af76ad08e165f128a716ede96b68a"
+  dependencies:
+    file-saver "1.3.8"
 
 react-dev-utils@^6.0.4:
   version "6.0.4"
