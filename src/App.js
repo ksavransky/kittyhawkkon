@@ -15,17 +15,6 @@ const Users = () => (
             first_name
             last_name
             email
-            flights {
-              id
-              duration
-              aircraft {
-                id
-                name
-                manufacturer
-                model
-                serial_number
-              }
-            }
           }
         }
       }
