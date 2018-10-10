@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import PilotCardWrapper from './PilotCardWrapper.js'
+import PilotCardContainer from '../../components/pilotCard/PilotCardContainer.js'
 import BootstrapTable from 'react-bootstrap-table-next';
 import ToolkitProvider, { CSVExport } from 'react-bootstrap-table2-toolkit';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import './Dashboard.css'
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './MainPage.css'
 
 const { ExportCSVButton } = CSVExport;
 
@@ -31,7 +31,7 @@ const defaultSorted = [{
   order: 'desc'
 }];
 
-class Dashboard extends Component {
+class MainPage extends Component {
   constructor(props) {
     super(props)
 
@@ -40,7 +40,7 @@ class Dashboard extends Component {
     }
   }
 
-  onClick = (e, row, rowIndex) => {
+  handleOnClick = (e, row, rowIndex) => {
     this.setState({
       selectedUserId: row.id
     })
@@ -71,7 +71,7 @@ class Dashboard extends Component {
                       hover
                       condensed
                       rowEvents={{
-                        onClick: this.onClick
+                        onClick: this.handleOnClick
                       }}
                     />
                   </div>
@@ -81,7 +81,7 @@ class Dashboard extends Component {
           </ToolkitProvider>
             <div className='pilot-card-container'>
               {this.state.selectedUserId ?
-                <PilotCardWrapper pilotId={this.state.selectedUserId} /> :
+                <PilotCardContainer pilotId={this.state.selectedUserId} /> :
                 <div className="pilot-card">
                   <div className="pilot-title">Pilot Information</div>
                   <div className="pilot-message">Click on a Row</div>
@@ -94,4 +94,4 @@ class Dashboard extends Component {
   }
 }
 
-export default Dashboard;
+export default MainPage;

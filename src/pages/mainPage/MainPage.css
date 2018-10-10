@@ -12,14 +12,19 @@
 
 .dashboard .pilot-table-container {
   max-width: 60%;
-  overflow: hidden;
   margin: 0px 20px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
-.dashboard .pilot-table tbody {
+.dashboard .pilot-table td {
   cursor: pointer;
+  overflow: hidden;
+}
+
+.dashboard .pilot-table th {
+  overflow: hidden;
 }
 
 .dashboard .content {
@@ -27,14 +32,21 @@
 }
 
 .pilot-table-container button {
-  align-self: baseline;
+  position: absolute;
+  top: -40px;
+  left: 0px;
   background-color: #4CAF50;
   border: none;
   color: white;
   padding: 6px 18px;
   text-align: center;
   text-decoration: none;
-  display: inline-block;
   font-size: 16px;
-  margin-bottom: 5px;
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .pilot-table-container button {
+    display: block;
+  }
 }

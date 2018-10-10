@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react'
 import PilotCard from './PilotCard'
-import { Query } from "react-apollo";
-import gql from "graphql-tag";
+import { Query } from "react-apollo"
+import gql from "graphql-tag"
 
 const PilotCardWrapper = (props) => (
-
   <Query
     query={gql`
       {
@@ -38,4 +37,4 @@ const PilotCardWrapper = (props) => (
   </Query>
 )
 
-export default PilotCardWrapper;
+export default PilotCardWrapper
