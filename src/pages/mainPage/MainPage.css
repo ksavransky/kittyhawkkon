@@ -6,7 +6,7 @@
 }
 
 .dashboard .title {
-  font-size: 24px;
+  font-size: 30px;
   margin: 20px 0px 40px;
 }
 
@@ -77,6 +77,20 @@
   padding: 6px 18px;
   border: none;
   border-radius: 5px;
+}
+
+.dashboard .cvs-button svg {
+  margin-right: 5px;
+}
+
+.dashboard .cvs-button.disabled {
+  display: flex;
+  background-color: grey;
+  cursor: default;
+}
+
+.dashboard .cvs-button.disabled:hover {
+  background-color: grey;
 }
 
 .dashboard .cvs-button:hover, .dashboard .pilot-table-container button:hover {

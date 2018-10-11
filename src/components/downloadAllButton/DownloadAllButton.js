@@ -1,9 +1,8 @@
 import React from 'react';
 import { CSVLink } from 'react-csv';
-import { flatten, forEach } from 'lodash'
+import { forEach } from 'lodash'
 
 const DownloadAllButton = ({ data }) => {
-  console.log('datadatadatadatadata', data)
   const cvsData = []
   forEach(data, (pilot) => {
     const { id, first_name, last_name, email } = pilot
@@ -44,7 +43,6 @@ const DownloadAllButton = ({ data }) => {
       cvsData.push(dataObject)
     })
   })
-  console.log('cvsData', cvsData)
   return (
     <CSVLink
       className='cvs-button'

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PilotCardContainer from '../../components/pilotCard/PilotCardContainer.js'
-import DownloadAllButton from '../../components/downloadAllButton/DownloadAllButton.js'
+import DownloadAllButtonContainer from '../../components/downloadAllButton/DownloadAllButtonContainer.js'
 import BootstrapTable from 'react-bootstrap-table-next';
 import ToolkitProvider, { CSVExport } from 'react-bootstrap-table2-toolkit';
 import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
@@ -65,7 +65,7 @@ class MainPage extends Component {
               props => (
                 <div className='pilot-table-container'>
                   <ExportCSVButton { ...props.csvProps }>Export Table</ExportCSVButton>
-                  <DownloadAllButton data={this.props.users}/>
+                  <DownloadAllButtonContainer data={this.props.users}/>
                   <div className='pilot-table'>
                     <BootstrapTable
                       { ...props.baseProps }
