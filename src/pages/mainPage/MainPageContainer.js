@@ -1,6 +1,7 @@
 import React from 'react';
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
+import Loader from 'react-loader-spinner'
 import MainPage from './MainPage.js'
 
 const MainPageContainer = () => (
@@ -19,7 +20,15 @@ const MainPageContainer = () => (
     `}
   >
     {({ loading, error, data }) => {
-      if (loading) return <p>Loading...</p>;
+      if (loading) return (
+        <Loader
+          type="Oval"
+          color="#00BFFF"
+          height="70"
+          width="70"
+          className='main-page-loader'
+        />
+      )
       if (error) return <p>Error :(</p>;
 
       return (

@@ -5,6 +5,10 @@
     justify-content: center;
 }
 
+.App > div > svg {
+  margin: 50px;
+}
+
 .dashboard .title {
   font-size: 30px;
   margin: 20px 0px 40px;
