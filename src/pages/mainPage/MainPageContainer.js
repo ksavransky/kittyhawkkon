@@ -13,6 +13,32 @@ const MainPageContainer = () => (
             first_name
             last_name
             email
+            flights {
+              id
+              latitude
+              longitude
+              duration
+              location {
+                id
+                name
+                latitude
+                longitude
+              }
+              notes
+              batteries {
+                id
+                name
+                manufacturer
+                serial_number
+              }
+              aircraft {
+                id
+                name
+                manufacturer
+                model
+                serial_number
+              }
+            }
           }
         }
       }

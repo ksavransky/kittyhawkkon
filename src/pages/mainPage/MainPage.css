@@ -7,7 +7,7 @@
 
 .dashboard .title {
   font-size: 24px;
-  margin: 20px;
+  margin: 20px 0px 40px;
 }
 
 .dashboard .pilot-table-container {
@@ -16,7 +16,12 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  display: none;
+}
+
+@media (max-width: 740px) {
+  .dashboard .pilot-table-container {
+    max-width: 90%;
+  }
 }
 
 .dashboard .pilot-table td {
@@ -32,6 +37,13 @@
   display: flex;
 }
 
+@media (max-width: 740px) {
+  .dashboard .content {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .dashboard .pilot-table-container button {
   position: absolute;
   top: -40px;
@@ -43,14 +55,30 @@
   text-align: center;
   text-decoration: none;
   font-size: 16px;
-  display: none;
 }
 
-@media (min-width: 600px) {
-  .dashboard .pilot-table-container {
-    display: block;
-  }
+@media (max-width: 740px) {
   .dashboard .pilot-table-container button {
-    display: block;
+    display: none;
   }
+  .dashboard .cvs-button {
+    display: none;
+  }
+}
+
+.dashboard .cvs-button {
+  position: absolute;
+  top: -40px;
+  left: 140px;
+  font-size: 16px;
+  text-decoration: none;
+  background-color: #4CAF50;
+  color: white;
+  padding: 6px 18px;
+  border: none;
+  border-radius: 5px;
+}
+
+.dashboard .cvs-button:hover, .dashboard .pilot-table-container button:hover {
+  background-color: #459c49;
 }
