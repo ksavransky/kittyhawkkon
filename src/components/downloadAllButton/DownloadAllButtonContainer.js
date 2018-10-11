@@ -49,19 +49,18 @@ const DownloadAllButtonContainer = () => (
       if (loading) return (
         <div className='cvs-button disabled'>
           <Loader
+            containerClass='loader'
             type="Oval"
             color="#00BFFF"
             height="15"
             width="15"
           />
-          Export All
+          <div className='text'>Export All</div>
         </div>
       )
       if (error) return <p>Error :(</p>
-
-      return (
-        <DownloadAllButton data={data.account.users} />
-      )
+        
+      return <DownloadAllButton data={data.account.users} />
     }}
   </Query>
 );
